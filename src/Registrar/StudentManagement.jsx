@@ -226,7 +226,7 @@ const PendingStudents = () => {
                   Reinstate
                 </Button>
                 <Button onClick={() => handleDelete(student.id)} variant="contained" color="error">
-                  Remove
+                  Delete
                 </Button>
               </TableCell>
             </TableRow>

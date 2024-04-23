@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link, useNavigate } from 'react-router-dom';
 import { AppBar, Toolbar, Typography, Button, Container, Box, IconButton } from '@mui/material';
 import { Home as HomeIcon, AccountCircle as AccountCircleIcon, Menu as MenuIcon } from '@mui/icons-material';
 import Login from './Account/Login';
@@ -29,6 +29,8 @@ function App() {
   const [isProf, setIsProf] = useState(false);
   const [isRegistrar, setIsRegistrar] = useState(false);
   const [refreshed, setRefreshed] = useState(false);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     
@@ -85,6 +87,7 @@ function App() {
     setIsStudent(false);
     setIsProf(false);
     setIsRegistrar(false);
+    navigate('/homepage');
   };
 
   return (

@@ -74,12 +74,6 @@ function PendingEnrollments() {
     }));
 
     console.log(studentLessons);
-    // Call the API endpoint to create all StudentLesson records
-    // await axios.post('https://localhost:7178/api/StudentLessons', studentLessons, {
-    //   headers: {
-    //     Authorization: `Bearer ${token}`,
-    //   },
-    // });
 
     studentLessons.map((student) => {
       axios.post('https://localhost:7178/api/StudentLessons', student, {
