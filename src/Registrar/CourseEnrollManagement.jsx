@@ -37,7 +37,7 @@ function PendingEnrollments() {
   const handleApprove = async (enrollmentId) => {
     try {
       const token = localStorage.getItem('token');
-      console.log(enrollmentId);
+      // console.log(enrollmentId);
       const response = await axios.put(`https://localhost:7178/api/CourseEnrollDetails/${enrollmentId}/approve`, null, {
         headers: {
           Authorization: `Bearer ${token}`,
