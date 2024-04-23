@@ -39,20 +39,9 @@ function Signin() {
           password: password
         }
       });
-    //   const response = await axios.post('https://localhost:7283/api/Students/Login', {
-    //     email,
-    //     password,
-    //   });
-      // const token = response.data.token;
-      // localStorage.setItem('token',token);
-      // localStorage.setItem('Id',response.data.id);
-      // localStorage.setItem('Name',response.data.name);
-      // localStorage.setItem('Role',response.data.role);
       
-      // if(response.data.role == "student") navigate("/homepage");
-      // else if(response.data.role == "professor") navigate("/professordashboard");
-      // else navigate("/registrardashboard");
       handleLoginSuccess(response.data);
+      window.location.reload();
     } catch (error) {
       console.error('Login failed:', error);
     }

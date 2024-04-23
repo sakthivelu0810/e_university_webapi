@@ -71,6 +71,7 @@ const PendingProfessors = () => {
       }
 
       fetchPendingProfessors(); // Refresh the list after rejection
+      window.location.reload();
     } catch (error) {
       console.error('Error rejecting professor:', error);
     }

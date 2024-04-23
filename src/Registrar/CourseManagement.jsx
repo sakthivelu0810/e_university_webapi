@@ -43,6 +43,7 @@ const CourseManagement = () => {
       if (response.data) {
         fetchPendingCourses(); // Refresh the list after approval
         // window.location.reload();
+      window.location.reload();
       }
     } catch (error) {
       console.error('Error approving course:', error);
@@ -64,7 +65,7 @@ const CourseManagement = () => {
 
       if (response.data) {
         fetchPendingCourses(); // Refresh the list after rejection
-        // window.location.reload();
+        window.location.reload();
       }
     } catch (error) {
       console.error('Error rejecting course:', error);

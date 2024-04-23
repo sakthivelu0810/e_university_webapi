@@ -90,6 +90,7 @@ function PendingEnrollments() {
     });
 
     console.log("Approved successfully");
+    window.location.reload();
 
     } catch (error) {
       console.error('Error approving enrollment:', error);
@@ -110,6 +111,7 @@ function PendingEnrollments() {
           enrollment.id === enrollmentId ? { ...enrollment, registrarStatus: 'Rejected' } : enrollment
         )
       );
+      window.location.reload();
     } catch (error) {
       console.error('Error rejecting enrollment:', error);
     }
