@@ -34,7 +34,7 @@ function PendingEnrollments() {
     fetchPendingEnrollments();
   }, []);
 
-  const handleApprove = async (enrollmentId) => {
+  const handleApprove = async (enrollmentId, courseId, batchId) => {
     try {
       const token = localStorage.getItem('token');
       // console.log(enrollmentId);
@@ -43,15 +43,13 @@ function PendingEnrollments() {
           Authorization: `Bearer ${token}`,
         },
       });
+
       // Update the status in the UI after successful approval
       setPendingEnrollments((prevEnrollments) =>
         prevEnrollments.map((enrollment) =>
-          enrollment.id === enrollmentId ? { ...enrollment, registrarStatus: 'Approved' } : enrollment
+          enrollment.id === enrollmentId ? { ...enrollment, registrarStatus: 'Pending' } : enrollment
         )
       );
-
-      console.log(response.data);
-      const courseId = response.data.courseId;
 
     // Fetch all lessons based on the courseId
     const lessonResponse = await axios.get(`https://localhost:7178/api/Lessons/ByCourseId/${courseId}`, {
@@ -67,15 +65,31 @@ function PendingEnrollments() {
     const studentLessons = lessons.map((lesson) => ({
       studentId: localStorage.getItem('Id'), // Assuming studentId is retrieved from local storage
       lessonId: lesson.lessonId,
+      lessonTitle: lesson.lessonTitle,
+      lessonContent: lesson.lessonContent,
+      lessonNumber: lesson.lessonNumber,
+      courseId: courseId,
+      batchId: batchId,
       status: 'Not Completed', // Marking each lesson as 'Not Completed'
     }));
 
+    console.log(studentLessons);
     // Call the API endpoint to create all StudentLesson records
-    await axios.post('https://localhost:7178/api/StudentLessons', studentLessons, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+    // await axios.post('https://localhost:7178/api/StudentLessons', studentLessons, {
+    //   headers: {
+    //     Authorization: `Bearer ${token}`,
+    //   },
+    // });
+
+    studentLessons.map((student) => {
+      axios.post('https://localhost:7178/api/StudentLessons', student, {
+        headers: {
+              Authorization: `Bearer ${token}`,
+            },
+      })
     });
+
+    console.log("Approved successfully");
 
     } catch (error) {
       console.error('Error approving enrollment:', error);
@@ -127,12 +141,12 @@ function PendingEnrollments() {
                 <TableCell>{enrollment.batchId}</TableCell>
                 <TableCell>{enrollment.registrarStatus}</TableCell>
                 <TableCell>
-                  {enrollment.registrarStatus === 'Pending' && (
+                  {enrollment.registrarStatus === 'Approved' && (
                     <>
                       <Button
                         variant="contained"
                         color="primary"
-                        onClick={() => handleApprove(enrollment.enrollId)}
+                        onClick={() => handleApprove(enrollment.enrollId, enrollment.courseId, enrollment.batchId)}
                         style={{ marginRight: 10 }}
                       >
                         Approve

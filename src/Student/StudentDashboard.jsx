@@ -98,7 +98,7 @@ function StudentDashboard() {
                 <Typography variant="body2" color="textSecondary" component="p">
                   Description : {course.courseDescription}
                 </Typography>
-                <Link to={`/course/${course.courseId}`}>
+                <Link to={`/course/${course.courseId}?batchId=${course.batchId}`}>
                   <Button variant="contained" color="primary" style={{ marginTop: 10 }}>
                     Go to Course
                   </Button>
