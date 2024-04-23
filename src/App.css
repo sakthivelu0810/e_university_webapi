@@ -1,0 +1,38 @@
+/* App.css */
+
+/* Resetting margin and padding for the entire page */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Ensuring the 'app' div takes full height of the viewport */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Minimum height of the viewport */
+}
+
+/* Styling the content area to fill the remaining space */
+.content {
+  flex-grow: 1;
+  padding: 20px; /* Adjust as needed */
+}
+
+/* Styling for the footer */
+.footer {
+  background-color: #f5f5f5;
+  padding: 10px 0;
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+#root {
+  /* max-width: 1280px; */
+  margin: 0 auto;
+  text-align: center;
+}
