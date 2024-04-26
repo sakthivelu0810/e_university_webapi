@@ -62,10 +62,10 @@ const CourseForm = () => {
   };
 
   return (
-    <Grid container justifyContent="center">
+    <Grid className='btncontainer' container justifyContent="center">
       <Grid item xs={10} sm={8} md={6} lg={4}>
         <Paper elevation={3} style={{ padding: 20, marginTop: 20 }}>
-          <Typography variant="h5" gutterBottom>
+          <Typography className='title' variant="h5" gutterBottom>
             Add Course Details
           </Typography>
           <form onSubmit={handleSubmit}>
@@ -117,7 +117,7 @@ const CourseForm = () => {
               required
               margin="normal"
             />
-            <Button type="submit" variant="contained" color="primary" style={{ marginTop: 20 }}>
+            <Button className='btn' type="submit" variant="contained" color="primary" style={{ marginTop: 20 }}>
               Add Course
             </Button>
           </form>

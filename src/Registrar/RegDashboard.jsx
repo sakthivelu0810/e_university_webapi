@@ -6,12 +6,12 @@ import { Link } from 'react-router-dom';
 function RegistrarDashboard()
 {
     return (
-        <>
-        <Link to="/studentmanagement"><Button>Student Management</Button></Link>
-        <Link to="/professormanagement"><Button>Professor Management</Button></Link>
-        <Link to="/coursemanagement"><Button>Course Management</Button></Link>
-        <Link to="/courseenrollmanagement"><Button>Course Enroll Management</Button></Link>
-        </>
+        <div className='btncontainer'>
+        <Link to="/studentmanagement"><Button className='btn'>Student Management</Button></Link><br />
+        <Link to="/professormanagement"><Button className='btn'>Professor Management</Button></Link><br />
+        <Link to="/coursemanagement"><Button className='btn'>Course Management</Button></Link><br />
+        <Link to="/courseenrollmanagement"><Button className='btn'>Course Enroll Management</Button></Link>
+        </div>
     );
 }
 

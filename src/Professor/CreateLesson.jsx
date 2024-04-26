@@ -77,8 +77,8 @@ function CreateLessons() {
   };
 
   return (
-    <Container maxWidth="md" style={{ marginTop: 20 }}>
-      <Typography variant="h4" gutterBottom>
+    <Container className='btncontainer' maxWidth="md" style={{ marginTop: 20 }}>
+      <Typography className='title' variant="h4" gutterBottom>
         Create Lessons
       </Typography>
       <form onSubmit={handleSubmit}>
@@ -110,6 +110,7 @@ function CreateLessons() {
           ))}
           <Grid item xs={12}>
             <Button
+              className='btn'
               type="submit"
               variant="contained"
               color="primary"

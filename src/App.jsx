@@ -92,7 +92,7 @@ function App() {
 
   return (
     <div className="app">
-      <AppBar position="static">
+      <AppBar className="navbar" position="static">
         <Toolbar>
         <IconButton
             size="large"
@@ -101,23 +101,23 @@ function App() {
             aria-label="menu"
             sx={{ mr: 2 }}
           >
-            <Link to="/homepage">
+            <Link className='link' to="/homepage">
             <img src={Logo} alt="Logo" style={{ height: '40px', marginRight: '10px' }} />
             </Link>
-            {isStudent && 
-            <Typography>
-              <Link to="/studentdashboard">My DashBoard</Link>
-              </Typography>}
-            {isProf &&  <Typography><Link to="/professordashboard">Professor DashBoard</Link></Typography>}
-            {isRegistrar && <Typography><Link to="/registrardashboard">Registrar DashBoard</Link></Typography>}
           </IconButton>
+          {isStudent && 
+            <Typography>
+              <Link className='link' to="/studentdashboard">My DashBoard</Link>
+              </Typography>}
+            {isProf &&  <Typography><Link className='link' to="/professordashboard">Professor DashBoard</Link></Typography>}
+            {isRegistrar && <Typography><Link className='link' to="/registrardashboard">Registrar DashBoard</Link></Typography>}
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           </Typography>
           {isLoggedIn ? (
             <Box display="flex" alignItems="center">
               <Typography variant="body1" color="inherit" sx={{ mr: 3 }}>
                 {/* <AccountCircleIcon sx={{ mr: 1 }} />  */}
-                {userName}
+                Hi, {userName}
               </Typography>
               <Button color="inherit" onClick={handleLogout}>Logout</Button>
             </Box>
@@ -150,11 +150,11 @@ function App() {
         </Routes> 
       </Container>
 
-      <footer className="footer">
+      {/* <footer className="footer">
         <Typography variant="body2" color="textSecondary" align="center">
           Footer Content
         </Typography>
-      </footer>
+      </footer> */}
     </div>
   );
 }

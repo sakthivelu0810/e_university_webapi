@@ -36,3 +36,54 @@ body, html {
   margin: 0 auto;
   text-align: center;
 }
+
+.app .navbar{
+  background-color: white;
+  color: #fd0860;
+}
+
+.app .navbar .link{
+  margin: auto 10px;
+  color: #fd0860;
+  text-decoration: none;
+}
+
+.link:hover {
+  background-color: initial !important;
+  color: initial !important;
+  text-decoration: initial !important;
+}
+
+.title {
+  position: relative;
+  display: inline-block;
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: -5px; /* Adjust this value to control the distance from the text */
+  left: 10%; /* Adjust this value to control the starting point of the underline */
+  width: 80%; /* Width of the underline relative to the text */
+  height: 3px; /* Height/thickness of the underline */
+  background-color: #fd0860; /* Color of the underline */
+}
+
+.grid .btn, .btncontainer .btn {
+  border-radius: 10px;
+  border: 2px solid black;
+  background-color:#ff5895;
+  text-decoration: none;
+  color: black;
+  padding: 5px 30px;
+  margin: 10px 20px;
+}
+
+.grid .btn:hover, .btncontainer .btn:hover {
+  background-color: black;
+  color: white;
+}
+
+Link{
+  text-decoration: none;
+}

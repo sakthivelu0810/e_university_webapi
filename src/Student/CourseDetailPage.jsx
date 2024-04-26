@@ -411,10 +411,10 @@ function CourseDetailPage() {
   };
 
   return (
-    <Container maxWidth="md" style={{ marginTop: 20 }}>
+    <Container className="btncontainer" maxWidth="md" style={{ marginTop: 20 }}>
       {course && (
         <>
-          <Typography variant="h4" gutterBottom>
+          <Typography className="title" variant="h4" gutterBottom>
             {course.courseName}
           </Typography>
           <Card>
@@ -428,9 +428,10 @@ function CourseDetailPage() {
               </Typography>
               <br />
               <br />
-              <Typography variant="h4" gutterBottom>
+              <Typography className="title" variant="h4" gutterBottom>
                 Lessons
               </Typography>
+              <br /><br />
               <TableContainer component={Paper}>
                 <Table>
                   <TableHead>
@@ -470,10 +471,11 @@ function CourseDetailPage() {
                   </TableBody>
                 </Table>
               </TableContainer>
-              <Button variant="contained" onClick={handleSaveProgression}>
+              <Button className="btn" variant="contained" onClick={handleSaveProgression}>
                 Save Progression
               </Button>
               <Button
+                className="btn"
                 variant="contained"
                 onClick={handleDownloadCertificate}
                 disabled={!allLessonsCompleted}

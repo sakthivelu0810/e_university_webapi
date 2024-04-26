@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Button, TextField, Typography, Container } from '@mui/material';
 import { Link } from 'react-router-dom';
+import Icon from '../navicon.png';
+import '../App.css';
 
 function Signup() {
   const [name, setName] = useState('');
@@ -31,8 +33,8 @@ function Signup() {
         password,
         confirmPassword,
         address,
-        status, // Include status in the POST request
-        role,
+        status: "pending", // Include status in the POST request
+        role: "student",
       });
 
       setSuccessMessage('Signup successful!');
@@ -53,10 +55,11 @@ function Signup() {
   };
 
   return (
-    <Container maxWidth="sm">
-      <Typography variant="h4" align="center" gutterBottom>
-        Signup
+    <Container className='btncontainer' maxWidth="sm">
+      <Typography className='title' variant="h4" align="center" gutterBottom>
+        Student Signup
       </Typography>
+      <br /><br />
       {successMessage && (
         <Typography variant="body1" color="primary" align="center">
           {successMessage}
@@ -124,7 +127,7 @@ function Signup() {
         />
         {/* Hidden input field for status */}
         <input type="hidden" name="status" value={status} />
-        <Button type="submit" variant="contained" color="primary">
+        <Button className='btn' type="submit" variant="contained" color="primary">
           Sign Up
         </Button>
       </form>

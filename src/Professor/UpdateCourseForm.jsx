@@ -87,8 +87,8 @@ const UpdateCourseForm = ({ onClose }) => {
   };
 
   return (
-    <Container maxWidth="sm" style={{ marginTop: 20 }}>
-      <Typography variant="h4" gutterBottom>
+    <Container className='btncontainer' maxWidth="sm" style={{ marginTop: 20 }}>
+      <Typography className='title' variant="h4" gutterBottom>
         Update Course
       </Typography>
       <TextField
@@ -136,7 +136,7 @@ const UpdateCourseForm = ({ onClose }) => {
         onChange={handleInputChange}
         style={{ marginBottom: 20 }}
       />
-      <Button onClick={handleUpdate} variant="contained" color="primary">
+      <Button className='btn' onClick={handleUpdate} variant="contained" color="primary">
         Update Course
       </Button>
       <Notification

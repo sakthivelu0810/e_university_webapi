@@ -34,7 +34,7 @@ function PendingEnrollments() {
     fetchPendingEnrollments();
   }, []);
 
-  const handleApprove = async (enrollmentId, courseId, batchId) => {
+  const handleApprove = async (enrollmentId, courseId, batchId, studentId) => {
     try {
       const token = localStorage.getItem('token');
       // console.log(enrollmentId);
@@ -51,6 +51,31 @@ function PendingEnrollments() {
         )
       );
 
+    //   console.log(pendingEnrollments);
+
+    //   function getBatchIdsForStudent(studentId) {
+    //     return pendingEnrollments
+    //         .filter(enrollment => enrollment.studentId === studentId)
+    //         .map(enrollment => enrollment.batchId);
+    //   }
+    
+    // // Example usage
+    // const batchIds = getBatchIdsForStudent(studentId);
+
+    // console.log(batchIds, batchId);
+
+    // function isBatchIdInArray(batchId, batchIdsArray) {
+    //   return batchIdsArray.includes(batchId);
+    // }
+
+    // if(isBatchIdInArray(batchId, batchIds))
+    // {
+    //   console.log("present");
+    //   return;
+    // }
+
+    // console.log("After return");
+
     // Fetch all lessons based on the courseId
     const lessonResponse = await axios.get(`https://localhost:7178/api/Lessons/ByCourseId/${courseId}`, {
       headers: {
@@ -61,9 +86,15 @@ function PendingEnrollments() {
     // Get the array of lessons
     const lessons = lessonResponse.data;
 
+    console.log(lessons);
+
+    lessons.map((lesson) => { console.log(studentId, lesson.lessonTitle)});
+
+    // ------------------- Updating the Student Lesson Table -----------------------------------
+
     // Create an array of StudentLesson objects with status as 'Not Completed'
     const studentLessons = lessons.map((lesson) => ({
-      studentId: localStorage.getItem('Id'), // Assuming studentId is retrieved from local storage
+      studentId: studentId, // Assuming studentId is retrieved from local storage
       lessonId: lesson.lessonId,
       lessonTitle: lesson.lessonTitle,
       lessonContent: lesson.lessonContent,
@@ -84,7 +115,7 @@ function PendingEnrollments() {
     });
 
     console.log("Approved successfully");
-    window.location.reload();
+    // window.location.reload();
 
     } catch (error) {
       console.error('Error approving enrollment:', error);
@@ -137,12 +168,12 @@ function PendingEnrollments() {
                 <TableCell>{enrollment.batchId}</TableCell>
                 <TableCell>{enrollment.registrarStatus}</TableCell>
                 <TableCell>
-                  {enrollment.registrarStatus === 'Approved' && (
+                  {enrollment.registrarStatus === 'Pending' && (
                     <>
                       <Button
                         variant="contained"
                         color="primary"
-                        onClick={() => handleApprove(enrollment.enrollId, enrollment.courseId, enrollment.batchId)}
+                        onClick={() => handleApprove(enrollment.enrollId, enrollment.courseId, enrollment.batchId, enrollment.studentId)}
                         style={{ marginRight: 10 }}
                       >
                         Approve

@@ -88,8 +88,8 @@ const BatchForm = () => {
   };
 
   return (
-    <Container maxWidth="sm">
-      <Typography variant="h4" gutterBottom>
+    <Container className='btncontainer' maxWidth="sm">
+      <Typography className='title' variant="h4" gutterBottom>
         Create Batch
       </Typography>
       <form onSubmit={handleSubmit}>
@@ -122,7 +122,7 @@ const BatchForm = () => {
           fullWidth
           margin="normal"
         />
-        <Button type="submit" variant="contained" color="primary">
+        <Button className='btn' type="submit" variant="contained" color="primary">
           Create Batch
         </Button>
       </form>

@@ -73,10 +73,11 @@ function StudentDashboard() {
   }, [studentId]); // Fetch courses when studentId changes
 
   return (
-    <Container maxWidth="md" style={{ marginTop: 20 }}>
-      <Typography variant="h4" gutterBottom>
+    <Container className='btncontainer' maxWidth="md" style={{ marginTop: 20 }}>
+      <Typography className='title' variant="h4" gutterBottom>
         Enrolled Courses
       </Typography>
+      <br /><br />
       <Grid container spacing={3}>
         {enrolledCourses.map((course) => (
           <Grid item xs={12} sm={6} md={4} key={course.enrollId}>
@@ -99,7 +100,7 @@ function StudentDashboard() {
                   Description : {course.courseDescription}
                 </Typography>
                 <Link to={`/course/${course.courseId}?batchId=${course.batchId}`}>
-                  <Button variant="contained" color="primary" style={{ marginTop: 10 }}>
+                  <Button className='btn' variant="contained" color="primary" style={{ marginTop: 10 }}>
                     Go to Course
                   </Button>
                 </Link>

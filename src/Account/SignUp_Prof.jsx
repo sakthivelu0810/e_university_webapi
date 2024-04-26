@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Button, TextField, Typography, Container, Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
 
+
 function SignupProfessor() {
   const [formData, setFormData] = useState({
     name: '',
@@ -118,10 +119,11 @@ function SignupProfessor() {
   };
 
   return (
-    <Container maxWidth="sm">
-      <Typography variant="h4" align="center" gutterBottom>
+    <Container maxWidth="sm" className='btncontainer'>
+      <Typography className='title' variant="h4" align="center" gutterBottom>
         Professor Signup
       </Typography>
+      <br /><br />
       <form onSubmit={handleSubmit}>
         <Grid container spacing={2}>
           <Grid item xs={12}>
@@ -215,7 +217,7 @@ function SignupProfessor() {
               onChange={handleFileChange}
             />
             <label htmlFor="qualification-certificate">
-              <Button variant="contained" component="span">
+              <Button className='btn' variant="contained" component="span">
                 Upload Qualification Certificate
               </Button>
             </label>
@@ -241,7 +243,7 @@ function SignupProfessor() {
             )}
           </Grid>
           <Grid item xs={12}>
-            <Button type="submit" variant="contained" color="primary">
+            <Button className='btn' type="submit" variant="contained" color="primary">
               Sign Up
             </Button>
           </Grid>

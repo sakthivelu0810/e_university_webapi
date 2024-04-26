@@ -177,7 +177,7 @@ function ProfDashBoard() {
 
   const CourseCard = ({ course }) => {
     return (
-      <Grid item xs={12} sm={6} md={4}>
+      <Grid className='btncontainer' item xs={12} sm={6}>
         <Card variant="outlined" style={{ marginBottom: 20 }}>
           <CardContent>
             <Typography variant="h5" gutterBottom>
@@ -196,11 +196,13 @@ function ProfDashBoard() {
               Lesson Count: {course.lessonCount}
             </Typography>
             <Button 
+              className='btn'
               onClick={() => handleCreateBatch(course.courseId, course.courseDuration)}
               variant="contained" color="primary" style={{ marginTop: 10 }}>
               Create Batch
             </Button>
             <Button
+              className='btn'
               onClick={() => handleUpdateCourse(course.courseId)}
               variant="contained"
               color="primary"
@@ -208,6 +210,7 @@ function ProfDashBoard() {
               Update Course
             </Button>
             <Button
+              className='btn'
               onClick={() => handleCreateLesson(course.courseId, course.lessonCount)}
               variant="contained"
               color="primary"
@@ -243,15 +246,17 @@ function ProfDashBoard() {
   
 
   return (
-    <Container maxWidth="md" style={{ marginTop: 20 }}>
+    <Container className='btncontainer' maxWidth="md" style={{ marginTop: 20 }}>
       <Link to="/createcourse">
-        <Button variant="contained" color="primary" style={{ marginBottom: 20 }}>
+        <Button className='btn' variant="contained" color="primary" style={{ marginBottom: 20 }}>
           Create Course
         </Button>
       </Link>
-      <Typography variant="h4" gutterBottom>
+      <br /><br />
+      <Typography className='title' variant="h4" gutterBottom>
         My Courses
       </Typography>
+      <br /><br />
       <Grid container spacing={3}>
         {courseData.map((course) => (
           <CourseCard key={course.courseId} course={course} />
