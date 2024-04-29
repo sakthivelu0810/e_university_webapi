@@ -28,6 +28,8 @@ const CourseForm = () => {
     try {
       const token = localStorage.getItem('token');
 
+      console.log(courseDetails);
+
       const response = await fetch('https://localhost:7178/api/CourseDetails', {
         method: 'POST',
         headers: {

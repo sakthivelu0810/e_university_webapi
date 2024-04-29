@@ -15,6 +15,7 @@ function SignupProfessor() {
     confirmPassword: '',
     status: 'Pending',
     qualificationCertificate: null,
+    role: 'Professor',
   });
   const [fileError, setFileError] = useState('');
   const [submitError, setSubmitError] = useState('');

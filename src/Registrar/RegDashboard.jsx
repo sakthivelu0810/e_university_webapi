@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 function RegistrarDashboard()
 {
+    
     return (
         <div className='btncontainer'>
         <Link to="/studentmanagement"><Button className='btn'>Student Management</Button></Link><br />

@@ -27,7 +27,7 @@ function CreateLessons() {
         lessonContent: lesson.lessonContent,
       }));
 
-      // console.log("Lessons to create: ",lessonsToCreate);
+      console.log("Lessons to create: ",lessonsToCreate);
 
       const createdLessons = await Promise.all(
         lessonsToCreate.map((lesson) =>

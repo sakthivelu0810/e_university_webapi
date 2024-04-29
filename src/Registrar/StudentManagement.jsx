@@ -180,7 +180,7 @@ const PendingStudents = () => {
         </TableBody>
       </Table>
       <br />
-      <Button onClick={() => downloadPDF('pending-table', 'Pending_Students')} variant="contained">Download Pending Students PDF</Button>
+      <Button className='btn'  color="secondary" onClick={() => downloadPDF('pending-table', 'Pending_Students')} variant="contained">Download Pending Students PDF</Button>
       <br />
       <Typography variant="h4">Approve Students</Typography>
       <Table id="approved-table">
@@ -216,7 +216,7 @@ const PendingStudents = () => {
         </TableBody>
       </Table>
       <br />
-      <Button onClick={() => downloadPDF('approved-table', 'Approved_Students')} variant="contained">Download Approved Students PDF</Button>
+      <Button className='btn' color="secondary" onClick={() => downloadPDF('approved-table', 'Approved_Students')} variant="contained">Download Approved Students PDF</Button>
       <br />
       <Typography variant="h4">Suspended Students</Typography>
         <br />
@@ -252,7 +252,7 @@ const PendingStudents = () => {
         </TableBody>
       </Table>
       <br />
-      <Button onClick={() => downloadPDF('suspended-table', 'Suspended_Students')} variant="contained">Download Suspended Students PDF</Button>
+      <Button className='btn' color="secondary"  onClick={() => downloadPDF('suspended-table', 'Suspended_Students')} variant="contained">Download Suspended Students PDF</Button>
       <br />
       <Typography variant="h4">Rejected Students</Typography>
         <br />
@@ -285,7 +285,7 @@ const PendingStudents = () => {
         </TableBody>
       </Table>
       <br />
-      <Button onClick={() => downloadPDF('rejected-table', 'Rejected_Students')} variant="contained">Download Rejected Students PDF</Button>
+      <Button className='btn'  color="secondary" onClick={() => downloadPDF('rejected-table', 'Rejected_Students')} variant="contained">Download Rejected Students PDF</Button>
       <br /><br />
 
     </TableContainer>

@@ -104,6 +104,8 @@ function App() {
     navigate("/homepage");
   };
 
+  const handleProfile = () => {};
+
   const handleMenuOpen = (event) => {
     setAnchorMenu(event.currentTarget);
   };
@@ -158,44 +160,73 @@ function App() {
             sx={{ flexGrow: 1 }}
           ></Typography>
           {isLoggedIn ? (
-            <Box display="flex" alignItems="center">
-              {/* <React.Fragment>
-                <Button
-                  color="inherit"
-                  aria-controls="user-menu"
-                  aria-haspopup="true"
-                  onClick={handleMenuOpen}
-                  startIcon={<AccountCircleIcon />}
-                >
-                  Hi, {userName}
-                </Button>
-                <Menu
-                  id="user-menu"
-                  anchormenu={anchormenu}
-                  open={Boolean(anchormenu)}
-                  onClose={handleMenuClose}
-                  anchorOrigin={{
-                    vertical: 'bottom',
-                    horizontal: 'center',
-                  }}
-                  transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'center',
-                  }}
-                >
-                  <MenuItem onClick={handleLogout}>Logout</MenuItem>
-                  
-                </Menu>
-              </React.Fragment> */}
-              <Typography variant="body1" color="inherit" sx={{ mr: 3 }}>
-                {/* <AccountCircleIcon sx={{ mr: 1 }} />  */}
+            <React.Fragment>
+              <Button
+                color="inherit"
+                aria-controls="user-menu"
+                aria-haspopup="true"
+                onClick={handleMenuOpen}
+                startIcon={<AccountCircleIcon />}
+              >
                 Hi, {userName}
-              </Typography>
-              <Button color="inherit" onClick={handleLogout}>
-                Logout
               </Button>
-            </Box>
+              <Menu
+                id="user-menu"
+                anchormenu={anchormenu}
+                open={Boolean(anchormenu)}
+                onClose={handleMenuClose}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                anchorPosition={{ top: "10%", right: "10%" }}
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "center",
+                }}
+              >
+                <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+                <MenuItem onClick={handleLogout}>Logout</MenuItem>
+              </Menu>
+            </React.Fragment>
           ) : (
+            // <Box display="flex" alignItems="center">
+            //   <React.Fragment>
+            //     <Button
+            //       color="inherit"
+            //       aria-controls="user-menu"
+            //       aria-haspopup="true"
+            //       onClick={handleMenuOpen}
+            //       startIcon={<AccountCircleIcon />}
+            //     >
+            //       Hi, {userName}
+            //     </Button>
+            //     <Menu
+            //       id="user-menu"
+            //       anchormenu={anchormenu}
+            //       open={Boolean(anchormenu)}
+            //       onClose={handleMenuClose}
+            //       anchorOrigin={{
+            //         vertical: "bottom",
+            //         horizontal: "center",
+            //       }}
+            //       transformOrigin={{
+            //         vertical: "top",
+            //         horizontal: "center",
+            //       }}
+            //     >
+            //       <MenuItem onClick={handleLogout}>Logout</MenuItem>
+            //     </Menu>
+            //   </React.Fragment>
+
+            //   <Typography variant="body1" color="inherit" sx={{ mr: 3 }}>
+            //     {/* <AccountCircleIcon sx={{ mr: 1 }} />  */}
+            //     Hi, {userName}
+            //   </Typography>
+            //   <Button color="inherit" onClick={handleLogout}>
+            //     Logout
+            //   </Button>
+            // </Box>
             <Button color="inherit" component={Link} to="/login">
               Login
             </Button>
