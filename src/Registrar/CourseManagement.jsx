@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
+import { Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography } from '@mui/material';
 
 const CourseManagement = () => {
   const [courses, setCourses] = useState([]);
@@ -74,6 +74,10 @@ const CourseManagement = () => {
 
   return (
     <TableContainer component={Paper}>
+      <Typography className='title' variant="h4" gutterBottom>
+        Pending Course Requests
+      </Typography>
+      <br /><br />
       <Table>
         <TableHead>
           <TableRow>

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography } from '@mui/material';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 const PendingStudents = () => {
   const [pendingstudents, setPendingStudents] = useState([]);
@@ -130,11 +132,23 @@ const PendingStudents = () => {
     }
   };
 
+  const downloadPDF = async (tableId, fileName) => {
+    try {
+      const table = document.getElementById(tableId);
+      const canvas = await html2canvas(table);
+      const pdf = new jsPDF();
+      pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0);
+      pdf.save(`${fileName}.pdf`);
+    } catch (error) {
+      console.error('Error generating PDF:', error);
+    }
+  };
+
   return (
     <TableContainer component={Paper}>
       <Typography variant="h4">Pending Student Requests</Typography>
       <br />
-      <Table>
+      <Table id="pending-table">
         <TableHead>
           <TableRow>
             <TableCell>Name</TableCell>
@@ -165,9 +179,11 @@ const PendingStudents = () => {
           ))}
         </TableBody>
       </Table>
-      <br /><br />
+      <br />
+      <Button onClick={() => downloadPDF('pending-table', 'Pending_Students')} variant="contained">Download Pending Students PDF</Button>
+      <br />
       <Typography variant="h4">Approve Students</Typography>
-      <Table>
+      <Table id="approved-table">
         <br />
         <TableHead>
           <TableRow>
@@ -199,10 +215,12 @@ const PendingStudents = () => {
           ))}
         </TableBody>
       </Table>
-      <br /><br />
+      <br />
+      <Button onClick={() => downloadPDF('approved-table', 'Approved_Students')} variant="contained">Download Approved Students PDF</Button>
+      <br />
       <Typography variant="h4">Suspended Students</Typography>
         <br />
-      <Table>
+      <Table id="suspended-table">
         <TableHead>
           <TableRow>
             <TableCell>Name</TableCell>
@@ -233,10 +251,12 @@ const PendingStudents = () => {
           ))}
         </TableBody>
       </Table>
-      <br /><br />
+      <br />
+      <Button onClick={() => downloadPDF('suspended-table', 'Suspended_Students')} variant="contained">Download Suspended Students PDF</Button>
+      <br />
       <Typography variant="h4">Rejected Students</Typography>
         <br />
-      <Table>
+      <Table id="rejected-table">
         <TableHead>
           <TableRow>
             <TableCell>Name</TableCell>
@@ -264,6 +284,10 @@ const PendingStudents = () => {
           ))}
         </TableBody>
       </Table>
+      <br />
+      <Button onClick={() => downloadPDF('rejected-table', 'Rejected_Students')} variant="contained">Download Rejected Students PDF</Button>
+      <br /><br />
+
     </TableContainer>
   );
 };

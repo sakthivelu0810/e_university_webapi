@@ -10,7 +10,8 @@ function RegistrarDashboard()
         <Link to="/studentmanagement"><Button className='btn'>Student Management</Button></Link><br />
         <Link to="/professormanagement"><Button className='btn'>Professor Management</Button></Link><br />
         <Link to="/coursemanagement"><Button className='btn'>Course Management</Button></Link><br />
-        <Link to="/courseenrollmanagement"><Button className='btn'>Course Enroll Management</Button></Link>
+        <Link to="/courseenrollmanagement"><Button className='btn'>Course Enroll Management</Button></Link><br />
+        <Link to="/reportdashboard"><Button className='btn'>Reports</Button></Link>
         </div>
     );
 }

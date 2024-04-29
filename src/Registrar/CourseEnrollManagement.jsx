@@ -144,9 +144,10 @@ function PendingEnrollments() {
 
   return (
     <Container maxWidth="md" style={{ marginTop: 20 }}>
-      <Typography variant="h4" gutterBottom>
+      <Typography className='title' variant="h4" gutterBottom>
         Pending Enrollments
       </Typography>
+      <br /><br />
       <TableContainer>
         <Table>
           <TableHead>
